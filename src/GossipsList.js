@@ -1,17 +1,12 @@
 import React from 'react';
+import Gossip from './Gossip';
 
 const GossipsList = ({ gossips }) => {
   return (
     <ul>
       {
-        gossips.map(gossip => {
-          return (
-            <li>
-              <div>Name: {gossip.name}</div>
-              <div>Age: {gossip.age}</div>
-              <div>Color: {gossip.color}</div>
-            </li>
-          )
+        gossips.map((gossip, index) => {
+          return <Gossip key={index} name={gossip.name} color={gossip.color} gossip={gossip} />
         })
       }
     </ul>
