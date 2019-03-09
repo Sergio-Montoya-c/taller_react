@@ -7,14 +7,27 @@ export default class Pokedex extends Component {
   state = {
     pokemon: [],
     selected: null,
+    next: '',
   }
 
   componentDidMount =  async () => {
-    const result = await axios.get('https://pokeapi.co/api/v2/pokemon');   
-    const   pokemon = result.data.results; 
+    const result = await axios.get('https://pokeapi.co/api/v2/pokemon');  
+    const pokemon = result.data.results; 
+    this.addPokemon(pokemon, result.data.next);
+  }
+  
+  addPokemon = (pokemon, next) => {
     this.setState({
       pokemon: [...this.state.pokemon, ...pokemon],
-    });
+      next,
+    });    
+  } 
+
+  handleNext = async() => {
+    const {next} = this.state;
+    const result = await axios.get(next);  
+    const pokemon = result.data.results; 
+    this.addPokemon(pokemon, result.data.next);
   }
 
   handlePokemonSelect = async (event) => {
@@ -30,6 +43,7 @@ export default class Pokedex extends Component {
       selected: null,
     });
   }
+
 
   render() {
     const { selected, pokemon } = this.state;
@@ -55,7 +69,7 @@ export default class Pokedex extends Component {
           <div className="btn back" onClick={this.handleBack}>
             BACK
           </div>
-          <div className="btn next">
+          <div className="btn next" onClick={this.handleNext}>
             NEXT
           </div>
         </div>
