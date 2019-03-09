@@ -11,11 +11,7 @@ export default class Questions extends React.Component {
     event.preventDefault();
     const {name, age, color} = this.state; 
     
-    const answer = {
-      name: name,
-      age: age,
-      color: color,
-    };
+    const answer = { name, age, color };
 
     this.props.addGossipProp(answer);
 
