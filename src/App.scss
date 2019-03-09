@@ -44,3 +44,139 @@ body {
   padding: 15px;
 }
 }
+
+
+$red: #DE1537;
+$gray: #DEDEDE;
+$blue: #27A5F4;
+
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+:root {
+  --height: 100vw;
+  --width: calc(var(--height) / 2);  
+  transition: 0.5s;
+  font-size: 16px;
+  @media screen and (orientation:portrait) {
+    --width: 90vw;
+    --height: calc(var(--width) * 1.8);
+  }
+}
+body {
+  background: #000;
+  font-family: 'Press Start 2P', cursive;  
+  transition: 0.5s;
+  @media screen and (max-width: 769px) {
+    font-size: 8px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.pokedex {
+  background: $red;
+  width: var(--width);
+  height: var(--height);
+  max-height: 95vh;
+  max-width: calc(95vh / 2);
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  font-size: 1em;
+  &:before {
+    --circle: 15%;
+    position: absolute;
+    content: "";
+    top: 3%;
+    left: 10%;
+    width: var(--circle);
+    padding-bottom: var(--circle);
+    background: $blue;
+    clip-path: circle(50% at 50% 50%)
+  }
+  .frame {
+    position: absolute;
+    width: 80%;
+    height: 40%;
+    left: 10%;
+    top: 15%;
+    border-radius: 10px;
+    background: $gray;
+    clip-path: polygon(0 0, 0 85%, 15% 100%, 100% 100%, 100% 0);        
+    .screen {
+      position: absolute;
+      width: 85%;
+      height: 75%;
+      top: 7.5%;
+      left: 7.5%;
+      background: #FFF;
+      border-radius: 10px;
+      overflow-y: scroll;
+      padding: 15px;
+      &.pokemon {
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        ul {
+          position: absolute;
+          height: 50%;
+          width: 100%;
+          overflow-x: scroll;
+          bottom: 0;
+          left: 0;
+          li {
+            padding: 10px 15px;
+          }
+        }
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          margin-bottom: 10px;
+          border-bottom: 1px solid #000;
+          padding: 10px 0;
+          text-transform: uppercase;
+          margin: 0;
+          cursor: pointer;
+          transition: .2s;
+          cursor: pointer;
+          &:hover {
+            padding-left: 5%;
+            background: #cdcdcd;
+          }
+        }
+      }
+    }
+  }
+  .controls {
+    position: absolute;
+    width: 80%;
+    top: 58%;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    .btn {
+      border-radius: 50px;
+      background: #cdcdcd;
+      height: 30px;
+      width: 100px;
+      text-align: center;
+      cursor: pointer;
+      line-height: 30px;
+    color: #FFF;
+      &.back {
+        background: #27A5F4;
+      }
+      &.next {
+        background: #4BA358;
+      }
+    }
+  }
+}

@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 
-import Gossiper from './Gossiper';
+import Pokedex from './Pokedex';
 
 
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<Gossiper />, document.getElementById('root'));
+ReactDOM.render(<Pokedex />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
