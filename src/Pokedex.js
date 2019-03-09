@@ -25,6 +25,12 @@ export default class Pokedex extends Component {
     });
   }
 
+  handleBack = () => {
+    this.setState({
+      selected: null,
+    });
+  }
+
   render() {
     const { selected, pokemon } = this.state;
     return (
@@ -36,7 +42,12 @@ export default class Pokedex extends Component {
           {
             selected &&
             <div className="screen pokemon">
-              POKEMON
+              <img height="50%" src={selected.sprites.front_default} />
+              <ul>
+                {selected.moves.map(move => {
+                  return <li>{move.move.name}</li>
+                })}
+              </ul>
             </div>
           }
         </div>
