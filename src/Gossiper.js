@@ -6,11 +6,17 @@ export default class Gossiper extends React.Component {
     gossips: [],
   }
 
+  addGossip = (answer) => {
+    this.setState({
+      gossips: [...this.state.gossips, answer],
+    });
+  }
+
   render () {
     return (
       <div>
         <h1>Gossiper</h1>
-        <Questions />
+        <Questions addGossipProp={this.addGossip} />
       </div>
     );
   }
