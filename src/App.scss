@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #fafafa;
+}
+.gossiper {
+  h1 {
+    text-align: center;
+  }
+  .gossip-form {
+    background: #FFF;
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #cdcdcd;    
+    display: flex;
+    border-radius: 3px;
+    flex-direction: column;
+    padding: 15px;
+    input {
+      margin-bottom: 15px;
+      margin-top: 5px;
+      height: 25px;
+      border-radius: 3px;
+      border: 1px solid #cdcdcd;
+
+    }
+    input[type="submit"] {
+      background: green;
+      font-weight: bold;
+      color: #FFF;
+    }
+  }
+.gossips-list {
+  list-style: none;
+  padding: 15px;
+}
+.gossip{
+  width: 100%;
+  border: 1px solid #cdcdcd;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  padding: 15px;
+}
+}

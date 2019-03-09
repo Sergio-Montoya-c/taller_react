@@ -29,8 +29,7 @@ export default class Questions extends React.Component {
     const {name, age, color} = this.state;
     return (
       <Fragment>
-        <Gossip gossip={this.state} />
-        <form onSubmit={this.handleSubmit} >
+        <form onSubmit={this.handleSubmit} className="gossip-form" >
           <label>Your Name:</label>
           <input type="text" name="name" value={name} onChange={this.handleInputChange}/>
 
@@ -41,6 +40,7 @@ export default class Questions extends React.Component {
           <input type="text" name="color" value={color} onChange={this.handleInputChange} />
 
           <input type="submit" value="ADD GOSSIP" />
+          <Gossip gossip={this.state} />
         </form>
       </Fragment>
     );
